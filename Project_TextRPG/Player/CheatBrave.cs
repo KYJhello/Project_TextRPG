@@ -17,7 +17,7 @@ namespace Project_TextRPG
             CurExp = 100;
             MaxExp = 101;
             AP = int.MaxValue/2;
-            DP = int.MaxValue/2;
+            DP = 100;
 
             skills = new List<Skill>();
             skills.Add(new Skill("공격하기", Attack));

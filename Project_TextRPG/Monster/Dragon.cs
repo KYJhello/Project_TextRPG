@@ -17,6 +17,7 @@ namespace Project_TextRPG
         public Dragon()
         {
             name = "드래곤";
+            icon = '♣';
             curHp = 100;
             maxHp = 100;
             ap = 15;

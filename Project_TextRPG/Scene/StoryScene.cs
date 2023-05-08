@@ -18,9 +18,10 @@ namespace Project_TextRPG
             StringBuilder sb = new StringBuilder();
 
             Console.WriteLine(Data.storys[index]);
+            Console.WriteLine();
+            Console.WriteLine();
             sb.AppendLine("1: 이전 내용");
-            sb.AppendLine("2: 다음 내용");
-            sb.Append(" : ");
+            sb.Append("2: 다음 내용");
 
             Console.WriteLine(sb);
         }

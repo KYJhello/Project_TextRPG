@@ -10,6 +10,7 @@ namespace Project_TextRPG
     {
         public DemonLord()
         {
+            icon = '◈';
             name = "마왕";
             curHp = 1000;
             maxHp = 1000;

@@ -17,7 +17,11 @@ namespace Project_TextRPG
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("######################");
+            sb.AppendLine("##                  ##");
+            sb.AppendLine("##                  ##");
             sb.AppendLine("##   도화가의모험   ##");
+            sb.AppendLine("##                  ##");
+            sb.AppendLine("##                  ##");
             sb.AppendLine("######################");
 
             sb.AppendLine("1:게임시작");

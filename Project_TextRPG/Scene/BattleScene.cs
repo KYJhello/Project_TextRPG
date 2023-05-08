@@ -39,17 +39,59 @@ namespace Project_TextRPG
             Console.WriteLine();
             Console.Write("명령을 입력하세요 : ");
 
-            string input = Console.ReadLine();
+            
         }
 
         public override void Update()
         {
+            string input = Console.ReadLine();
+            int index;
+            if (!int.TryParse(input, out index))
+            {
+                Console.WriteLine("잘못 입력하셨습니다.");
+                return;
+            }
+            if (index < 1 || index > Data.player.skills.Count)
+            {
+                Console.WriteLine("잘못 입력하셨습니다.");
+                return;
+            }
 
+            Data.player.skills[index - 1].action(monster);
+
+            // 턴 결과
+            if (monster.curHp <= 0)
+            {
+                game.Map();
+                return;
+            }
+
+            // 몬스터 턴
+            monster.Attack(Data.player);
+
+            // 턴 결과
+            if (Data.player.CurHp <= 0)
+            {
+                game.GameOver("몬스터에게 패배했습니다.");
+                return;
+            }
         }
         public void StartBattle(Monster monster)
         {
+            this.monster = monster;
+            Data.monsters.Remove(monster);
 
+            Console.Clear();
+            Console.WriteLine($"{monster.name}(와/과) 전투 시작!");
+            Thread.Sleep(1000);
         }
+        public void EndBattle()
+        {
+            Console.Clear();
+            Console.WriteLine("전투에서 승리했다!");
 
+            Thread.Sleep(2000);
+            game.Map();
+        }
     }
 }

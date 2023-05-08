@@ -8,6 +8,7 @@ namespace Project_TextRPG
 {
     public class StoryScene : Scene
     {
+        private int index = 0;
         public StoryScene(Game game) : base(game)
         {
         }
@@ -16,6 +17,7 @@ namespace Project_TextRPG
         {
             StringBuilder sb = new StringBuilder();
 
+            Console.WriteLine(Data.storys[index]);
             sb.AppendLine("1: 이전 내용");
             sb.AppendLine("2: 다음 내용");
             sb.Append(" : ");
@@ -27,6 +29,7 @@ namespace Project_TextRPG
         {
             string input = Console.ReadLine();
 
+            
             int command;
             if (!int.TryParse(input, out command))
             {
@@ -38,10 +41,19 @@ namespace Project_TextRPG
             switch (command)
             {
                 case 1:
-                    
+                    if(index <= 0)
+                    {
+                        break;
+                    }
+                    Console.WriteLine(Data.storys[index--]);
                     break;
                 case 2:
-                    game.Map();
+                    if (index >= Data.storys.Count -1)
+                    {
+                        game.Map();
+                    }
+                    Console.WriteLine(Data.storys[index++]);
+
                     break;
                 default:
                     Console.WriteLine("잘못 입력 하셨습니다.");

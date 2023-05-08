@@ -75,11 +75,14 @@ namespace Project_TextRPG
         }
         public void Inventory()
         {
+
             curScene = inventoryScene;
         }
 
         public void GameStart()
         {
+            Data.LoadLevel();
+
             curScene = storyScene;
         }
         public void GameOver(string text = "")

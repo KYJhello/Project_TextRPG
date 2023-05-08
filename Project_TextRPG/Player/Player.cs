@@ -102,10 +102,6 @@ namespace Project_TextRPG
             }
             CurDp += shield;
         }
-        public void DeleteShield(int turn)
-        {
-
-        }
         public void Attack(Monster monster)
         {
             Console.WriteLine($"플레이어가 {monster.name}(을/를) 공격한다.");

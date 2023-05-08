@@ -23,7 +23,7 @@ namespace Project_TextRPG
 			new Vector2( +1, -1 )		    // 우하
 		};
 
-        public static bool PathFinding(bool[,] tileMap, Vector2 start,
+        public static bool PathFinding(Tile[,] tileMap, Vector2 start,
             Vector2 end, out List<Vector2> path)
         {
             int ySize = tileMap.GetLength(0);
@@ -80,7 +80,7 @@ namespace Project_TextRPG
                     if (x < 0 || x >= xSize || y < 0 || y >= ySize)
                         continue;
                     // 탐색할 수 없는 정점일 경우
-                    else if (tileMap[y, x] == false)
+                    else if (tileMap[y, x] != Tile.tile)
                         continue;
                     // 이미 방문한 정점일 경우
                     else if (visited[y, x])
@@ -88,7 +88,7 @@ namespace Project_TextRPG
                     // 대각선 이동시 대각선 좌우가 막혀있는 경우
                     else if (4 <= i && i <= 7)
                     {
-                        if (tileMap[y - Direction[i].y, x] && tileMap[y, x - Direction[i].x])
+                        if (tileMap[y - Direction[i].y, x] == Tile.wall && tileMap[y, x - Direction[i].x] == Tile.wall)
                         {
                             continue;
                         }
